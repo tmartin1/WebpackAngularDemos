@@ -1,4 +1,4 @@
-function userRoutes ($stateProvider) {
+function userRoutes ($stateProvider, $ocLazyLoadProvider) {
     'use strict';
 
     // $stateProvider
