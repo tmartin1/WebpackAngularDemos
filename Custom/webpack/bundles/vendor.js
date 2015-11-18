@@ -1,5 +1,4 @@
 // Vendor dependencies.
-
 module.exports = [
     // JS
     'jquery',
@@ -8,6 +7,7 @@ module.exports = [
     'ui-router',
     'moment',
     'node-lumx',
+    'oclazyLoad',
 
     // Styles
     nodeModule('mdi/css/materialdesignicons.min.css'),

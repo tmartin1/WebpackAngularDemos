@@ -8,6 +8,7 @@ export default angular
     .module('app', [
         'lumx',
         'ui.router',
+        'oc.lazyLoad',
         /* Load modules */
         // Modules can also be loaded using require as such:
         // require('./common/directives.module').name,

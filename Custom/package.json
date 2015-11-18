@@ -30,6 +30,7 @@
     "ng-annotate-loader": "0.0.6",
     "ng-annotate-webpack-plugin": "^0.1.2",
     "node-sass": "3.2.0",
+    "oclazyload": "^1.0.8",
     "raw-loader": "0.5.1",
     "sass-loader": "1.0.2",
     "style-loader": "0.12.3",

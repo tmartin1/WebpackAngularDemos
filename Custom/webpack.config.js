@@ -14,7 +14,7 @@ module.exports = {
     },
     output: {
         path: APP,
-        filename: 'app.bundle.js'
+        filename: 'app.js'
     },
     module: {
         loaders: [{
@@ -44,12 +44,7 @@ module.exports = {
     plugins: [
         // [CommonsChunkPlugin] Generate an extra chunk, which contains common modules shared
         // between entry points.
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-
-        // [HotModuleReplacementPlugin] Enables Hot Module Replacement. (This requires records data
-        // if not in dev-server mode, recordsPath). Generates Hot Update Chunks of each chunk in the
-        // records. It also enables the API and makes __webpack_hash__ available in the bundle.
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
 
         // [DefinePlugin] Define free variables. Useful for having development builds with debug
         // logging or adding global constants.
@@ -69,6 +64,11 @@ module.exports = {
             'global.$': 'jquery',
             moment: 'moment',
             'global.moment': 'moment'
-        })
+        }),
+
+        // [HotModuleReplacementPlugin] Enables Hot Module Replacement. (This requires records data
+        // if not in dev-server mode, recordsPath). Generates Hot Update Chunks of each chunk in the
+        // records. It also enables the API and makes __webpack_hash__ available in the bundle.
+        new webpack.HotModuleReplacementPlugin()
     ]
 };
