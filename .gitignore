@@ -1,9 +1,6 @@
 .idea
-Part1/node_modules
-Part2/node_modules
-Part3/node_modules
-Part2/app/bower_components
-Part3/app/bower_components
-Part1/npm-debug.log
-Part2/npm-debug.log
-Part3/npm-debug.log
+
+**/node_modules
+**/app/bower_components
+**/npm-debug.log
+**/.tmp
