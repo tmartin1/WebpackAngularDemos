@@ -10,7 +10,7 @@
     <nav class="main-nav main-nav--lap-and-up">
         <ul>
             <li ng-repeat="n in nav.app.links">
-                <a class="main-nav__link" href="{{::n.link}}" lx-ripple="white">
+                <a class="main-nav__link" ng-href="{{::n.link}}" lx-ripple="white">
                     {{::n.text}}</a>
             </li>
         </ul>

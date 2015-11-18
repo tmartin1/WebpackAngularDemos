@@ -1,8 +1,6 @@
 /*jshint browser:true */
 'use strict';
 
-require('./common/vendor.js')();
-
 var appModule = require('./index');
 
 if (MODE.production) { // jshint ignore:line

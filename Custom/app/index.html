@@ -8,11 +8,13 @@
 
     <body>
         <lumx-navbar></lumx-navbar>
-        <p>Angular is working: {{1 + 1 === 2}}</p>
 
-        <p class="fs-headline">Icons: <i class="mdi mdi-twitter"></i> @Sh_McK</p>
+        <center>(loading page content here)</center>
 
-        <script src=".tmp/bundle.js"></script>
+        <div class="page-content" ui-view></div>
+
+        <script src="vendor.bundle.js"></script>
+        <script src="app.bundle.js"></script>
     </body>
 
 </html>
