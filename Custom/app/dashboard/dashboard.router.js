@@ -1,12 +1,10 @@
+// Import base routes for all dashboard modules for lazy loading.
+// import {userRoot} from './user/user.router';
+
 // Define base routes for all dashboard modules for lazy loading.
-var dbModuleStates = [{
-    name: 'user',
-    url: '/user',
-    templateUrl: require('./user/user.html'),
-    controller: 'UserController',
-    module: 'app.user',
-    moduleUrl: require('./user/user.module')
-}];
+var dbModuleStates = [
+    require('./user/user.router').root
+];
 
 function lazyRoutes ($stateProvider, $ocLazyLoadProvider) {
     'use strict';
@@ -19,29 +17,24 @@ function lazyRoutes ($stateProvider, $ocLazyLoadProvider) {
         return {
             url: route.url,
             templateProvider: ($q) => {
-                var deferred = $q.defer();
-
-                require.ensure([], () => {
-                    var template = route.templateUrl;
-                    deferred.resolve(template);
+                return $q((resolve) => {
+                    require.ensure([], () => {
+                        resolve(require(route.templateUrl));
+                    });
                 });
-                return deferred.promise;
             },
             controller: route.controller,
             controllerAs: 'vm',
             resolve: {
                 load: ($q, $ocLazyLoad) => {
-                    var deferred = $q.defer();
-
-                    require.ensure([], function () {
-                        var mod = route.moduleUrl;
-                        $ocLazyLoad.load({
-                            name: route.module,
+                    return $q((resolve) => {
+                        require.ensure([], function () {
+                            $ocLazyLoad.load({
+                                name: require(route.moduleUrl).name,
+                            });
+                            resolve();
                         });
-                        deferred.resolve(mod.controller);
                     });
-
-                    return deferred.promise;
                 }
             }
         };

@@ -1,6 +1,6 @@
 class UserController {
     constructor () {
-        //
+        this.title = 'User dashboard';
     }
 }
 
