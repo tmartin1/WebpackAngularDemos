@@ -1,7 +1,7 @@
 module.exports = function () {
-  /* Styles */
-  require('../index.scss');
+    /* Styles */
+    require('../index.scss');
 
-  /* JS */
-  require('angular');
+    /* JS */
+    require('angular');
 };

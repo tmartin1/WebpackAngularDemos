@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = angular.module('app', [
-  'lumx',
-  /* modules */
-  require('./core/layout').name
+    'lumx',
+    /* modules */
+    require('./common/layout').name
 ]);
