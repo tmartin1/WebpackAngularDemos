@@ -3,13 +3,14 @@
 
 // Define base routes for all dashboard modules for lazy loading.
 var dbModuleStates = [
-    require('./user/user.router').root
+    require('./user/user.router').root,
+    require('./admin/admin.router').root
 ];
 
 function lazyRoutes ($stateProvider, $ocLazyLoadProvider) {
     'use strict';
 
-    angular.forEach(dbModuleStates, (route) => {
+    angular.forEach(dbModuleStates, function (route) {
         $stateProvider.state(route.name, lazyRouteBuilder(route));
     });
 
