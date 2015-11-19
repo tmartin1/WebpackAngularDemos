@@ -1,3 +1,2 @@
-export default angular.module('app.settings', [])
-    .controller('SettingsController', require('./settings.controller'))
-    .config(require('./settings.router'));
+export default angular.module('app.user.settings', [])
+    .controller('SettingsController', require('./settings.controller'));

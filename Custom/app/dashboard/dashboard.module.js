@@ -1,4 +1,4 @@
-var dashboardModule = 'app.dashboard';
-
-export default angular.module(dashboardModule, [])
-    .config(require('./dashboard.router'));
+export default angular.module('app.dashboard', [])
+    // .config((require('./dashboard.router')));
+    .config(require('./user/user.lazy'))
+    .config(require('./admin/admin.lazy'));

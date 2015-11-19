@@ -25,3 +25,48 @@ export default function lazyRouteBuilder (route) {
         }
     };
 };
+
+//
+//
+//
+
+// import path from 'path';
+//
+// class lazyRouteBuilder {
+//     constructor (route) {
+//         this.route = route;
+//         this.url = route.url;
+//         this.controller = route.controller;
+//         this.controllerAs = 'vm';
+//         this.resolve = {
+//             loadModule: this.loadModule
+//         };
+//     }
+//
+//     templateProvider ($q) {
+//         let route = this.route;
+//         return $q((resolve) => {
+//             // bundleName = 'dbmc';
+//             require.ensure([], () => {
+//                 // resolve(require('../../dashboard/user/user.html'));
+//                 resolve(require(route.templateUrl));
+//             });
+//         });
+//     }
+//
+//     loadModule ($q, $ocLazyLoad) {
+//         let route = this.route;
+//         return $q((resolve) => {
+//             require.ensure([], function () {
+//                 $ocLazyLoad.load({
+//                     // name: require('../../dashboard/user/user.module.js').name,
+//                     name: require(route.moduleUrl).name,
+//                 });
+//                 resolve();
+//             });
+//         });
+//     }
+//
+// };
+//
+// export default lazyRouteBuilder;

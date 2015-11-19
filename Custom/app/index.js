@@ -1,19 +1,16 @@
 'use strict';
 
 // Import modules.
-import directivesModule from './common/directives.module';
+import commonModule from './common/common.module';
 import loginModule from './login/login.module';
 import dashboardModule from './dashboard/dashboard.module';
 
 export default angular
     .module('app', [
-        'lumx',
-        'ui.router',
-        'oc.lazyLoad',
         /* Load modules */
         // Modules can also be loaded using require as such:
-        // require('./common/directives.module').name,
-        directivesModule.name,
+        // require('./common/common.module').name,
+        commonModule.name,
         loginModule.name,
         dashboardModule.name
     ])

@@ -1,14 +1,5 @@
-// export const userRoot = {
-//     name: 'user',
-//     url: '/user',
-//     templateUrl: './user/user.html',
-//     controller: 'UserController',
-//     module: 'app.user',
-//     moduleUrl: './user/user.module'
-// };
-
-// Define this module's subroutes here.
-function userRoutes ($stateProvider) {
+// Define this module's substatees here.
+function userRoutes ($stateProvider, $ocLazyLoadProvider) {
     'use strict';
 
     $stateProvider
@@ -16,6 +7,12 @@ function userRoutes ($stateProvider) {
             url: '/user/settings',
             template: require('./settings/settings.html'),
             controller: 'SettingsController',
+            controllerAs: 'vm'
+        })
+        .state('user.tasks', {
+            url: '/user/tasks',
+            template: require('./tasks/tasks.html'),
+            controller: 'TasksController',
             controllerAs: 'vm'
         });
 
