@@ -1,16 +1,32 @@
 'use strict';
 var webpack = require('webpack');
 var path = require('path');
-var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
-var config = require('./webpack');
 
 var APP = path.join(__dirname, '/app');
 
 module.exports = {
     context: APP,
     entry: {
-        app: config.bundle.app,
-        vendor: config.bundle.vendor
+        // Define core application modules.
+        app: [
+            'webpack/hot/dev-server',
+            './bootstrap.js'
+        ],
+        // Define vendor chunk modules.
+        vendor: [
+            // JS
+            'jquery',
+            'velocity-animate',
+            'angular',
+            'ui-router',
+            'moment',
+            'node-lumx',
+            'oclazyLoad',
+            // Styles
+            '../node_modules/mdi/css/materialdesignicons.min.css',
+            '../node_modules/node-lumx/dist/scss/_lumx.scss',
+            '../app/index.scss'
+        ]
     },
     output: {
         path: APP,
