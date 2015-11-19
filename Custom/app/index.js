@@ -7,7 +7,6 @@ import dashboardModule from './dashboard/dashboard.module';
 
 export default angular
     .module('app', [
-        /* Load modules */
         // Modules can also be loaded using require as such:
         // require('./common/common.module').name,
         commonModule.name,

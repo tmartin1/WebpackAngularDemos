@@ -18,14 +18,4 @@ function userRoutes ($stateProvider, $ocLazyLoadProvider) {
 
 }
 
-// Define root route here.
-userRoutes.root = {
-    name: 'user',
-    url: '/user',
-    templateUrl: './user/user.html',
-    controller: 'UserController',
-    module: 'app.user',
-    moduleUrl: './user/user.module'
-};
-
 export default userRoutes;
