@@ -14,7 +14,9 @@ module.exports = {
     },
     output: {
         path: APP,
-        filename: 'app.js'
+        publicPath: '/',
+        filename: '[name].js',
+        chunkFilename: '[name]-[hash].js'
     },
     module: {
         loaders: [{

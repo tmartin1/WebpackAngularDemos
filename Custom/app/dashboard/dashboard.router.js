@@ -1,3 +1,5 @@
+import lazyRouteBuilder from '../common/util/lazyRouteBuilder';
+
 // Import base routes for all dashboard modules for lazy loading.
 // import {userRoot} from './user/user.router';
 
@@ -10,36 +12,11 @@ var dbModuleStates = [
 function lazyRoutes ($stateProvider, $ocLazyLoadProvider) {
     'use strict';
 
+    var bundleName = 'dbmc';
     angular.forEach(dbModuleStates, function (route) {
         $stateProvider.state(route.name, lazyRouteBuilder(route));
     });
 
-    function lazyRouteBuilder (route) {
-        return {
-            url: route.url,
-            templateProvider: ($q) => {
-                return $q((resolve) => {
-                    require.ensure([], () => {
-                        resolve(require(route.templateUrl));
-                    });
-                });
-            },
-            controller: route.controller,
-            controllerAs: 'vm',
-            resolve: {
-                load: ($q, $ocLazyLoad) => {
-                    return $q((resolve) => {
-                        require.ensure([], function () {
-                            $ocLazyLoad.load({
-                                name: require(route.moduleUrl).name,
-                            });
-                            resolve();
-                        });
-                    });
-                }
-            }
-        };
-    }
 }
 
 export default lazyRoutes;

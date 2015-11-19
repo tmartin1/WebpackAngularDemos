@@ -8,16 +8,16 @@
 // };
 
 // Define this module's subroutes here.
-function userRoutes ($stateProvider, $ocLazyLoadProvider) {
+function userRoutes ($stateProvider) {
     'use strict';
 
-    // $stateProvider
-    //     .state('user', {
-    //         url: '/user',
-    //         template: require('./user.html'),
-    //         controller: 'UserController',
-    //         controllerAs: 'vm'
-    //     });
+    $stateProvider
+        .state('user.settings', {
+            url: '/user/settings',
+            template: require('./settings/settings.html'),
+            controller: 'SettingsController',
+            controllerAs: 'vm'
+        });
 
 }
 
